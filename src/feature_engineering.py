@@ -3,6 +3,7 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 import logging
 import yaml
+import joblib
 
 # Ensure the "logs" directory exists
 log_dir = 'logs'
@@ -72,6 +73,8 @@ def apply_tfidf(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features:
 
         train_df = pd.DataFrame(X_train_bow.toarray())
         train_df['label'] = y_train
+        os.makedirs("models",exist_ok=True)
+        joblib.dump(vectorizer,'models/vectorizer.pkl')
 
         test_df = pd.DataFrame(X_test_bow.toarray())
         test_df['label'] = y_test
