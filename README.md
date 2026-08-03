@@ -1,244 +1,311 @@
-Spam Detection MLOps
+ # 🚀 Spam Detection MLOps
 
-A production-ready Machine Learning project for SMS Spam Detection built with FastAPI, MongoDB, JWT Authentication, DVC, DVCLive, and MLflow. This project follows an end-to-end MLOps workflow including data versioning, model training, experiment tracking, API development, and model management.
+An end-to-end Machine Learning and MLOps project for detecting spam messages using FastAPI, JWT Authentication, MongoDB, DVC, DVCLive, and MLflow.
 
-Features
+---
 
-- User Registration & Login
+# 📌 Project Overview
+
+This project predicts whether a given SMS/message is **Spam** or **Ham** using a Machine Learning model. The project follows a complete MLOps pipeline from data ingestion to deployment-ready APIs.
+
+---
+
+# ✨ Features
+
+- User Registration
+- User Login
 - JWT Authentication
-- Protected Prediction API
-- SMS Spam Detection
-- TF-IDF Feature Engineering
-- Random Forest Classifier
+- Protected APIs
+- Spam Prediction API
 - MongoDB Integration
 - DVC Pipeline
 - DVCLive Experiment Tracking
 - MLflow Experiment Tracking
 - MLflow Model Registry
+- Model & Vectorizer Serialization
 - Logging
-- Environment Variable Configuration
+- Production Ready FastAPI Structure
 
-Tech Stack
+---
 
-Machine Learning
+# 🛠 Tech Stack
 
+### Machine Learning
 - Python
-- Scikit-learn
-- Random Forest
+- Scikit-Learn
+- Random Forest Classifier
 - TF-IDF Vectorizer
-- Pandas
-- NumPy
 
-Backend
-
+### Backend
 - FastAPI
-- Pydantic
 - JWT Authentication
-- Passlib (bcrypt)
+- Passlib
 - Python-Jose
 
-Database
-
+### Database
 - MongoDB
 
-MLOps
-
+### MLOps
 - DVC
 - DVCLive
 - MLflow
 
-Project Structure
+---
 
-Spam-Detection-MLOPS/
+# 📂 Project Structure
+
+```
+Spam-Detection-MLOPS
 │
-├── api/
-│   ├── core/
+├── api
+│   ├── core
 │   │   ├── config.py
 │   │   ├── database.py
 │   │   ├── password.py
 │   │   └── security.py
 │   │
-│   ├── dependencies/
+│   ├── dependencies
 │   │   └── auth_dependencies.py
 │   │
-│   ├── routers/
+│   ├── routers
 │   │   ├── auth_router.py
 │   │   └── prediction_router.py
 │   │
-│   ├── schemas/
+│   ├── schemas
 │   │   ├── auth_schema.py
 │   │   └── prediction_schema.py
 │   │
-│   ├── services/
-│   │   ├── auth_services.py
+│   ├── services
+│   │   ├── auth_service.py
 │   │   └── prediction_service.py
 │   │
 │   └── main.py
 │
-├── src/
+├── data
+├── models
+├── reports
+├── logs
+├── src
 │   ├── data_ingestion.py
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
 │   ├── model_training.py
 │   └── model_evaluation.py
 │
-├── data/
-├── models/
-├── reports/
-├── logs/
-├── dvclive/
-├── experiments/
-├── params.yaml
 ├── dvc.yaml
+├── params.yaml
 ├── requirements.txt
 └── README.md
+```
 
-Machine Learning Pipeline
+---
 
+# ⚙️ ML Pipeline
+
+```
 Raw Dataset
-     ↓
+      │
+      ▼
 Data Ingestion
-     ↓
+      │
+      ▼
 Data Preprocessing
-     ↓
+      │
+      ▼
 TF-IDF Feature Engineering
-     ↓
-Random Forest Training
-     ↓
+      │
+      ▼
+Model Training
+      │
+      ▼
 Model Evaluation
-     ↓
-Model Saving
+      │
+      ▼
+Save Model & Vectorizer
+```
 
-Authentication Flow
+---
 
-Register User
-     ↓
-Password Hashing
-     ↓
-MongoDB
-     ↓
-Login
-     ↓
-JWT Token
-     ↓
-Protected APIs
+# 🤖 Model
 
-Prediction Flow
+- Random Forest Classifier
+- TF-IDF Vectorizer
+- Max Features = 500
 
-User Message
-     ↓
-JWT Verification
-     ↓
-Load TF-IDF Vectorizer
-     ↓
-Transform Text
-     ↓
-Load Random Forest Model
-     ↓
-Prediction
-     ↓
-Spam / Ham
+---
 
-Model Performance
+# 📊 Model Performance
 
-Metric| Score
-Accuracy| 0.966
-Precision| 0.966
-Recall| 0.779
-ROC-AUC| 0.978
+| Metric | Score |
+|---------|--------|
+| Accuracy | **96.6%** |
+| Precision | **96.6%** |
+| Recall | **77.9%** |
+| ROC-AUC | **97.8%** |
 
-API Endpoints
+---
 
-Authentication
+# 🔐 Authentication
 
-Method| Endpoint| Description
-POST| "/auth/register"| Register User
-POST| "/auth/login"| Login User
-GET| "/auth/me"| Get Current User
+The project uses JWT Authentication.
 
-Prediction
+### APIs
 
-Method| Endpoint| Description
-POST| "/prediction/predict"| Predict Spam/Ham
+### Register
 
-MLOps Components
+```
+POST /auth/register
+```
 
-DVC
+### Login
+
+```
+POST /auth/login
+```
+
+### Current User
+
+```
+GET /auth/me
+```
+
+---
+
+# 📩 Prediction API
+
+```
+POST /prediction/predict
+```
+
+### Request
+
+```json
+{
+    "text":"Congratulations! You won a free iPhone."
+}
+```
+
+### Response
+
+```json
+{
+    "prediction":"SPAM"
+}
+```
+
+---
+
+# 🗄 Database
+
+MongoDB is used for:
+
+- User Authentication
+- User Information
+
+---
+
+# 📦 MLOps
+
+### DVC
+
+Used for
 
 - Data Versioning
-- Pipeline Automation
-- Reproducible Experiments
+- Pipeline Management
 
-DVCLive
+Pipeline Stages
+
+- Data Ingestion
+- Data Preprocessing
+- Feature Engineering
+- Model Training
+- Model Evaluation
+
+---
+
+### DVCLive
+
+Used for
 
 - Metrics Tracking
 - Parameter Tracking
 
-MLflow
+---
+
+### MLflow
+
+Used for
 
 - Experiment Tracking
 - Parameter Logging
 - Metric Logging
-- Model Artifact Logging
+- Model Logging
 - Model Registry
 
-Getting Started
+---
 
-Clone Repository
+# 🚀 Run Project
 
-git clone https://github.com/your-username/Spam-Detection-MLOPS.git
-cd Spam-Detection-MLOPS
+## Clone Repository
 
-Install Dependencies
+```bash
+git clone <repository-url>
+```
 
+## Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-Run DVC Pipeline
+## Run DVC Pipeline
 
+```bash
 dvc repro
+```
 
-Run FastAPI
+## Run FastAPI
 
+```bash
 uvicorn api.main:app --reload
+```
 
-Swagger API Documentation
+## Swagger
 
+```
 http://127.0.0.1:8000/docs
+```
 
-Run MLflow UI
+## Run MLflow
 
+```bash
 mlflow ui
+```
 
-Open:
+Open
 
+```
 http://127.0.0.1:5000
+```
 
-Current Project Status
+---
 
-- End-to-End ML Pipeline
-- FastAPI Backend
-- MongoDB Integration
-- JWT Authentication
-- Protected Prediction API
-- DVC Pipeline
-- DVCLive Integration
-- MLflow Experiment Tracking
-- MLflow Model Registry
-- Production-Ready Project Structure
-
-Upcoming Features
+# 🔥 Future Improvements
 
 - Docker
 - Docker Compose
 - React Frontend
 - Prediction History
-- GitHub Actions (CI/CD)
+- GitHub Actions CI/CD
 - AWS Deployment
+- Model Monitoring
 
-Author
+---
 
-Anushka Singh
+# 👨‍💻 Author
 
-AI & Data Science Student | Machine Learning | MLOps | FastAPI | DVC | MLflow | MongoDB | JWT
+**Anushka Singh**
 
-If you like this project, consider giving it a star on GitHub.
+AI & Data Science Student
+
+Machine Learning | MLOps | FastAPI | DVC | MLflow
