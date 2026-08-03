@@ -295,7 +295,6 @@ http://127.0.0.1:5000
 - Docker
 - Docker Compose
 - React Frontend
-- Prediction History
 - GitHub Actions CI/CD
 - AWS Deployment
 - Model Monitoring
