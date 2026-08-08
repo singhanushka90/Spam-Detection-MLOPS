@@ -1,0 +1,162 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+.hero-card {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb 60%, #60a5fa);
+  color: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.25);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  color: #dbeafe;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text {
+  max-width: 780px;
+  color: #eff6ff;
+  margin-top: 0.75rem;
+}
+
+.auth-card,
+.panel {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.mode-switch {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.mode-switch button,
+.auth-form button,
+.predict-form button,
+.ghost-btn {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.mode-switch button {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.mode-switch button.active,
+.auth-form button,
+.predict-form button {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+}
+
+.auth-form,
+.predict-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.auth-form input,
+.predict-form textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.8rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form input:focus,
+.predict-form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.predict-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.message {
+  margin-top: 1rem;
+  color: #1d4ed8;
+  font-weight: 600;
+  min-height: 1.25rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ghost-btn {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.result-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.history-list li {
+  padding: 0.85rem;
+  border-radius: 0.8rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.history-list strong {
+  color: #1d4ed8;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 1rem;
+  }
+}
